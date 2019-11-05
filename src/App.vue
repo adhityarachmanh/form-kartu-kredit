@@ -1,32 +1,47 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="wrapper" id="app">
+    <FormKartu
+      :form-data="formData"
+      @input-nomor-kartu="updateNomorKartu"
+      @input-nama-kartu="updateNamaKartu"
+      @input-bulan-kartu="updateBulanKartu"
+      @input-tahun-kartu="updateTahunKartu"
+      @input-cvv-kartu="updateKartuCvv"
+    />
+    <footer>
+      &copy; Copyright Adhitya Rachman H
+    </footer>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<script>
+import FormKartu from "./components/FormKartu";
+export default {
+  name: "app",
+  components: {
+    FormKartu
+  },
+  data() {
+    return {
+      formData: {
+        namaKartu: "",
+        nomorKartu: "",
+        bulanKartu: "",
+        tahunKartu: "",
+        cvvKartu: ""
+      },
+     
+    };
+  },
+   methods: {
+        updateNomorKartu(val) {},
+        updateNamaKartu(val) {},
+        updateBulanKartu(val) {},
+        updateTahunKartu(val) {},
+        updateKartuCvv(val) {}
+      }
+};
+</script>
+<style lang="scss">
+@import "./assets/styles/main.scss";
 </style>
